@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Signup
+{% endblock %}
+
+{% block style %}
+<style>
+    h1{
+        text-align: center;
+        margin-top: 120px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .center{
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+</style>
+{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="{{url_for('homepage')}}">Book Review</a>
+</nav>
+
+
+<h1>Signup</h1>
+<div class="center">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQv74hpKmdp2gDZYwWRxnHhJqlKFB8TcvhuQ&usqp=CAU">
+</div>
+
+<form action="{{url_for('success')}}" method="post">
+  
+    <div class="container">
+      <input type="text" placeholder="Enter Username" name="uname" required>
+  
+      <input type="password" placeholder="Enter Password" name="psw" required>
+  
+      <div class="center">
+        <button type="submit"class="btn btn-primary">Signup</button>
+      </div>
+      
+    </div>
+  </form>
+
+<div class="center">
+    <a href="/login">Already a user?? Login</a>
+</div>
+{% endblock %}

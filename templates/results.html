@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block body %}
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="{{url_for('homepage')}}">Book Review</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" >{{username}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('homepage')}}">Logout</a>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+<h4>Search Results</h4>
+<div class="dropdown-divider"></div>
+
+<div class="container results-container">
+    
+    {% for book in books %}
+        <div class="card border-primary mb-3" style="width: 12rem">
+            <div class="card-body">
+                <h4 class="card-title"> Title :{{book['title']}}</h4>
+                <h6 class="card-text">{{book['author']}}</h6>
+                <h6 class="card-text">{{book['year']}}</h6>
+                <h6 class="card-text">{{book['isbn']}}</h6>
+            </div>
+            <div class="card-footer">
+                <a href="/book/{{book['isbn']}}" class="card-link">Go to book page</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

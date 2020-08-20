@@ -1,0 +1,112 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Book
+{% endblock %}
+
+{% block style %}
+<style>
+.card{
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.content{
+  text-align: right;
+}
+
+.right{
+  text-align: right;
+  margin-right: 20px;
+}
+.from-control,.form-group{
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.int{
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+}
+.label{
+  margin-left: 20px;
+}
+
+#alert{
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="{{url_for('homepage')}}">Book Review</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" >{{username}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('homepage')}}">Logout</a>
+        </li>
+      </ul>
+    </div>
+</nav>
+<div class="center">
+  <div class="card" style="width:400px">
+    <div class="card-body">
+      <h3 class="card-title">{{title}}</h3>
+      <p class="content">by {{author}}.</p>
+      <p class="card-text"> ID :{{message['id']}}</p>
+      <p class="card-text"> ISBN :{{message['isbn']}}</p>
+      <p class="card-text">Total Ratings : {{message['work_ratings_count']}}</p>
+      <p class="card-text">Average Ratings : {{message['average_rating']}}</p>
+    </div>
+  </div>
+</div>
+
+<form  method="post">
+  <div class="form-group">
+    <input type="text" placeholder="enter comments" name="review" class="form-control" required>
+  </div>
+
+  <div class="form group">
+    <input type="number" placeholder="enter rating" name="rating" max="5" min="1" class="int" required >
+  </div>
+  <div class="right">
+    <button type="submit" class="btn btn-success">Submit Review</button>
+  </div>
+</form>
+
+{% if reviews %}
+{% for review in reviews %}
+<div class="alert alert-primary" id="alert">
+  <div>
+    by <strong>{{review.username}}</strong>
+  </div>
+  <div>
+    <strong>Rating : </strong>{{review.rating}}
+  </div>
+  <div>
+    <strong>Review : </strong>{{review.text}}
+  </div>
+</div>
+{% endfor %}
+
+{% endif %}
+
+{% endblock %}

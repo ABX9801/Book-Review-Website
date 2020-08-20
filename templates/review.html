@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+review
+{% endblock %}
+
+{% block style %}
+<style>
+    .head{
+        font-size: large;
+        font-weight: bolder;
+        margin-top: 10px;
+        font-size: large;
+        margin-left: 20px;
+    }
+    .center{
+        text-align: center;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="{{url_for('homepage')}}">Book Review</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" >{{username}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('homepage')}}">Logout</a>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+<form action="{{url_for('search')}}" method="post">
+    <div class="form-group">
+        <label for="search" class="head">Search</label>
+        <input type="text" class="form-control" placeholder="Enter part of a title, ISBN, or author name " name="search" required>
+    </div>
+    <div class="center">
+        <button type="submit" class="btn btn-success">Search</button>
+    </div>
+</form>
+
+
+
+{% endblock %}
