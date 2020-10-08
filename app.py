@@ -1,3 +1,4 @@
+#imported important Libraries
 import os
 import requests, json
 from flask import Flask, session, request, render_template
