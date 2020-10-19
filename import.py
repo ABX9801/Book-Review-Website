@@ -1,4 +1,4 @@
-#import essential libraries
+#import necessary libraries
 import csv
 import os
 
