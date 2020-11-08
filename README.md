@@ -1,7 +1,7 @@
 # Book-Review-Website
 A simple website for brushing up concepts of Html, Css, Flask and Postgres-SQL
 
-# How to run the projects
+# How to run the project
 - Install python 3 (3.7 or higher) and add python to path
 - Clone the repository using cmd or bash:
 ```shell
