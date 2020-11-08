@@ -18,7 +18,9 @@ flask run
 - You will get a link in bash or cmd like http://127.0.0.1:5000/
 - The website will run on this link
 
+
 # Website screenshots
+<center>
 ### Homepage
 <img src="screenshots/homepage.PNG" width=60%>
 
@@ -34,3 +36,4 @@ flask run
 
 ### Book Information Page
 <img src="screenshots/book_page.PNG" width=60%>
+</center>
