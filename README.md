@@ -21,6 +21,7 @@ flask run
 
 # Website screenshots
 <center>
+  
 ### Homepage
 <img src="screenshots/homepage.PNG" width=60%>
 
